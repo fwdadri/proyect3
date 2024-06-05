@@ -14,22 +14,22 @@ async function addtarea(tarea) {//es necesario el tarea entre ()
 
       body: JSON.stringify({// convesion de todo a un string  //body se refiere a todo el contenido?
 
-       task:tarea
+       task:tarea // hace que todas las tareas guardadas  salgan como task
 
      })
    });
   
-
     const data = await response.json(); //esperando a que se realice la funcion de conversion anterior          
      console.log(data)
     } catch(error) {
                
      console.log(error)
     } 
-  }
+}
 
-  async function getTask() { //entonces todo esto para que?
-    try { 
+
+async function getTask() { //entonces todo esto para que?
+   try { 
      const response = await fetch( "http://localhost:3000/api/task");//aqui esta llamando al local host?
      const data = await response.json(); //esta volviendo el localhost en un jaseon
      return data
@@ -37,6 +37,25 @@ async function addtarea(tarea) {//es necesario el tarea entre ()
     } catch (error) { 
      console.log(error);//que tipo de error atrapa
     }
-  }
+}
 
-  export{getTask,addtarea}
+
+
+
+async function deleteTask(id) {
+  
+  try{
+  const response = await fetch('http://localhost:3000/api/task/' + id, {
+  method: 'DELETE',
+  headers: { 
+    'Content-type': 'application/json'
+  
+  }})
+  }catch (error) { 
+    console.log(error);//que tipo de error atrapa
+   }
+}
+
+
+
+export{getTask,addtarea, deleteTask}
