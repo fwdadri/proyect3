@@ -13,16 +13,16 @@ nav{
 }
 
 #tarea{
-    margin-left: 150px;
+    text-align: center;
+    margin-left: 355px;
     margin-top: 10px;
+    height: 40px; 
+
 }
 
-#tarea{
-    height: 40px;
-}
 
 #agregando{
-    margin-left: 150px;
+    margin-left: 355px;
     background-color: #00b9ec;
     border-radius: 5px;
     height: 40px;
@@ -32,53 +32,69 @@ nav{
 }
 
 h4{
-    margin-left: 760px;
-    margin-top: -40px;
+    margin-left: 1000px;
+    margin-top: -50px;
 }
 
 #container{
-    text-align: center;
     max-height: 100vh;
     border: 2px solid rgb(130, 129, 129);
     height: 500px;
-    width: 1000px;
+    width: 800px;
     margin: 0 auto;
     margin-top: 30px;
     overflow: auto;
 }
 
-p{
-    margin-top: -20px;
-    margin-left: 30px; 
+#list{
+    display: flex;
+    margin-top: 17px;
+    margin-left: 50px;
 }
 
+
 #trash{
-    margin-top: -300px;
-    margin-left: 800px; 
-    
+    display: flex;
+    position: sticky;
+    height: 32px;
+    margin-top: 9px;
 }
 
 #cuadros{
     margin-top: 13px;
     border: 2px solid rgb(130, 129, 129);
     height: 50px;
-    width: 950px;
+    width: 750px;
     margin-left: 20px; 
     border-radius: 5px;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
 }
 
 #circulo{
+    text-align: center;
     height:100px;
     width:100px;
     border: 2px solid rgb(130, 129, 129);
-    -moz-border-radius:50px;
-    -webkit-border-radius:50px;
     border-radius:50px;
-    margin-left: 900px; 
-    margin-top: -50px;
+    margin-left: 1150px; 
+    margin-top: -60px;
+}
+
+#contador{
+    margin-top: 40px;
 }
 
 #check{
-    margin-left: -850px;
-    margin-top: 20px;
+    margin-top: 2px;
+    margin-left: 20px;
+}
+
+#conteiner {
+    text-align: center;
+}
+
+#nothing{
+    text-align: center;
+    margin-top: 210px;
 }

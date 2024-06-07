@@ -11,12 +11,11 @@ async function addtarea(tarea) {//es necesario el tarea entre ()
        headers: {//muestra el tipo de contenido que se guarda/ empuja
        'Content-Type': 'application/json'
       },
-
       body: JSON.stringify({// convesion de todo a un string  //body se refiere a todo el contenido?
 
-       task:tarea // hace que todas las tareas guardadas  salgan como task
-
-     })
+        task:tarea, // hace que todas las tareas guardadas  salgan como task
+        estado:"Incompleto",
+      })
    });
   
     const data = await response.json(); //esperando a que se realice la funcion de conversion anterior          
@@ -28,10 +27,10 @@ async function addtarea(tarea) {//es necesario el tarea entre ()
 }
 
 
-async function getTask() { //entonces todo esto para que?
+async function getTask() { //todos los asyn necesitan un await, un try y catch
    try { 
-     const response = await fetch( "http://localhost:3000/api/task");//aqui esta llamando al local host?
-     const data = await response.json(); //esta volviendo el localhost en un jaseon
+     const response = await fetch( "http://localhost:3000/api/task"); // obtenido los datos los local host 
+     const data = await response.json(); //esta volviendo el localhost en un jason para poder ser leidos
      return data
     
     } catch (error) { 
@@ -40,22 +39,42 @@ async function getTask() { //entonces todo esto para que?
 }
 
 
-
-
 async function deleteTask(id) {
-  
   try{
   const response = await fetch('http://localhost:3000/api/task/' + id, {
   method: 'DELETE',
   headers: { 
     'Content-type': 'application/json'
-  
+
   }})
   }catch (error) { 
+
     console.log(error);//que tipo de error atrapa
+
    }
 }
 
+async function UpdateCheck(id,estadoCheck) {//dos parametros 
+  try{
+    const response = await fetch('http://localhost:3000/api/task/' + id, {//aqui el id identifica cual es que se quiere cambiar
+    method: 'PUT',
+    headers: { 
+      'Content-type': 'application/json'
+    },
+    
+    body: JSON.stringify({// convesion de todo a un string  //body se refiere a todo el contenido?
+      // hace que todas las tareas guardadas  salgan como task
+      estado:estadoCheck
+
+    })
+  });
+  const data = await response.json(); //esperando a que se realice la funcion de conversion anterior          
+   console.log(data)
+  } catch(error) {
+             
+   console.log(error)
+  } 
+}
 
 
-export{getTask,addtarea, deleteTask}
+export{getTask,addtarea, deleteTask, UpdateCheck }
