@@ -1,6 +1,10 @@
 //consultas de datos
 //todas las funciones que tenga FETCH deben ir en una misma hoja
-//Modulos se refiere a acomoa por hojas separadas las funciones
+//Modulos se refiere a acomoda por hojas separadas las demas funciones
+//async significa asincronico, es un tipo de funcion
+
+
+//----------------------POST-addtarea-------------------------------------------------------------------------------
 
 async function addtarea(tarea) {//es necesario el tarea entre ()
 
@@ -8,10 +12,10 @@ async function addtarea(tarea) {//es necesario el tarea entre ()
      const response = await fetch("http://localhost:3000/api/task", {//llama al api
 
        method: 'POST',//post empuja/guarda/inserta el contenido
-       headers: {//muestra el tipo de contenido que se guarda/ empuja
+       headers: {//muestra el tipo de contenido que se guarda
        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({// convesion de todo a un string  //body se refiere a todo el contenido?
+      body: JSON.stringify({// convesion de todo a un string  //body se refiere a todo el contenido
 
         task:tarea, // hace que todas las tareas guardadas  salgan como task
         estado:"Incompleto",
@@ -26,6 +30,7 @@ async function addtarea(tarea) {//es necesario el tarea entre ()
     } 
 }
 
+//------------------GET----------------------------------------------------------------------------------------------
 
 async function getTask() { //todos los asyn necesitan un await, un try y catch
    try { 
@@ -38,6 +43,7 @@ async function getTask() { //todos los asyn necesitan un await, un try y catch
     }
 }
 
+//------------------DELATE----------------------------------------------------------------------------------------------
 
 async function deleteTask(id) {
   try{
@@ -50,9 +56,11 @@ async function deleteTask(id) {
   }catch (error) { 
 
     console.log(error);//que tipo de error atrapa
-
    }
+   window.location.reload()
 }
+
+//------------------PUT--UPDATE----------------------------------------------------------------------------------------
 
 async function UpdateCheck(id,estadoCheck) {//dos parametros 
   try{
@@ -62,10 +70,9 @@ async function UpdateCheck(id,estadoCheck) {//dos parametros
       'Content-type': 'application/json'
     },
     
-    body: JSON.stringify({// convesion de todo a un string  //body se refiere a todo el contenido?
-      // hace que todas las tareas guardadas  salgan como task
-      estado:estadoCheck
+    body: JSON.stringify({// convesion de todo a un string  //body se refiere a todo el contenido
 
+      estado:estadoCheck //muetra en el api las tareas que ya eatn marcadas
     })
   });
   const data = await response.json(); //esperando a que se realice la funcion de conversion anterior          

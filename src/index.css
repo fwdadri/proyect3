@@ -14,7 +14,7 @@ nav{
 
 #tarea{
     text-align: center;
-    margin-left: 355px;
+    margin-left: 365px;
     margin-top: 10px;
     height: 40px; 
 
@@ -22,7 +22,7 @@ nav{
 
 
 #agregando{
-    margin-left: 355px;
+    margin-left: 365px;
     background-color: #00b9ec;
     border-radius: 5px;
     height: 40px;
@@ -32,7 +32,7 @@ nav{
 }
 
 h4{
-    margin-left: 1000px;
+    margin-left: 930px;
     margin-top: -50px;
 }
 
@@ -77,7 +77,7 @@ h4{
     width:100px;
     border: 2px solid rgb(130, 129, 129);
     border-radius:50px;
-    margin-left: 1150px; 
+    margin-left: 1050px; 
     margin-top: -60px;
 }
 
